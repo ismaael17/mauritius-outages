@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* Custom black and yellow theme */
+        .black-bg {
+            background-color: #BCABAE;
+            color: #0F0F0F;
+        }
+        .bg-yellow {
+            background-color: #2D2E2E;
+        }
+        .text-dimgray {
+            color: #716969;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<body class = "bg-yellow">
+    <div class="container mt-5">
+        <h1 class="text-center mb-5 text-dimgray ">Outage Information</h1>
+    
+    
+        <div class="d-flex align-items-center h-10">
+            <form action = "{% url 'search_results' %}" class = "form-inline my-2 my-lg-0 mb-5 mx-auto" method = "get">
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search by location" aria-label="Search" name="location">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+</body>
+
+    
+{% endblock %}

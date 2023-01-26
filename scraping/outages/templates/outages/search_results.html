@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* Custom black and yellow theme */
+        .black-bg {
+            background-color: #BCABAE;
+            color: #0F0F0F;
+        }
+        .bg-yellow {
+            background-color: #2D2E2E;
+        }
+        .text-dimgray {
+            color: #716969;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<body class="bg-yellow">
+    <div class = "d-flex align-items-center" style="height: 90vh;">
+        <div class="container">
+            <h1 class="text-center mb-5 text-dimgray">Outage Information</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'index' %}" class="btn btn-secondary mb-3">Back to search</a>
+                </div>
+            </div>
+            <table class="table table-hover table-dark">
+                <thead class="black-bg">
+                    <tr>
+                        <th>District</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for outage in outages %}
+                        <tr>
+                            <td>{{ outage.district.name }}</td>
+                            <td>{{ outage.date }}</td>
+                            <td>{{ outage.start_time }}</td>
+                            <td>{{ outage.end_time }}</td>
+                            <td>{{ outage.location }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+
+
